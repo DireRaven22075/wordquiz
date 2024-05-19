@@ -81,12 +81,12 @@ int get_command() {
     return cmd;
 }
 
-void list_wordbooks() {
+void list_wordbooks() { 
     DIR * d = opendir("wordbooks");
     if (!d) {
         printf("Failed to open directory 'wordbooks'.\n");
         return;
-    }
+    } // edited by lkm 20240519
 
     printf("\n  ----\n");
 
@@ -117,7 +117,7 @@ void show_words() {
     if (!fp) {
         printf("Failed to open wordbook '%s'.\n", wordbook);
         return;
-    }
+    } // edited by lkm 20240519
 
     printf("\n  -----\n");
     char * line;
@@ -151,7 +151,7 @@ void run_test() {
     if (!fp) {
         printf("Failed to open wordbook '%s'.\n", wordbook);
         return;
-    }
+    } // edited by lkm 20240519
 
     printf("\n-----\n");
 
