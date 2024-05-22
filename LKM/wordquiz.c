@@ -81,7 +81,8 @@ int get_command() {
     return cmd;
 }
 
-void list_wordbooks() { 
+void list_wordbooks() {
+    system("cls"); // clear the terminal
     DIR * d = opendir("wordbooks");
     if (!d) {
         printf("Failed to open directory 'wordbooks'.\n");
@@ -140,7 +141,8 @@ void show_words() {
 void run_test() {
     char wordbook[128];
     char filepath[256];
-
+    system("cls"); // clear the terminal
+    list_wordbooks();
     printf("Type in the name of the wordbook?\n");
     printf(">");
     scanf("%s", wordbook);
