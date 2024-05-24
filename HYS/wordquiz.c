@@ -150,6 +150,7 @@ void run_test ()
 	int n_correct = 0 ; 
 
 	char * line ;
+	int exit = 0 ;
 	while (line = read_a_line(fp)) {
 		char * word = strtok(line, "\"") ;
 		strtok(NULL, "\"") ;
@@ -160,7 +161,11 @@ void run_test ()
 
 		char answer[128] ;
 		scanf("%s", answer) ;
-
+		if (strcmp(answer, ":exit") == 0) {
+			printf("Quiting the test...\n");
+			exit =1;
+			break ;
+		}
 		if (strcmp(answer, word) == 0) {
 			printf("- correct\n") ;
 			n_correct++ ;
@@ -172,11 +177,10 @@ void run_test ()
 		n_questions++ ;
 		free(line) ;
 	}
-
-	printf("(%d/%d)\n", n_correct, n_questions) ;
-
-	printf("-----\n\n") ;
-
+	if (!exit) {
+		printf("(%d/%d)\n", n_correct, n_questions) ;
+		printf("-----\n\n") ;
+	}
 	fclose(fp) ;
 }
 
